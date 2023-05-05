@@ -8,5 +8,5 @@ spec:
   selector:
     component: app
   ports:
-    - port: 30007
+    - port: 30068
       targetPort: 8000

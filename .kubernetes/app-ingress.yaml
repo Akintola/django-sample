@@ -2,6 +2,7 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: app-ingress-service
+  namespace: djangosample
   annotations:
     kubernetes.io/ingress.class: alb
     alb.ingress.kubernetes.io/scheme: internet-facing
@@ -26,4 +27,4 @@ spec:
               service:
                 name:  app
                 port:
-                  number: 30007
+                  number: 30068
