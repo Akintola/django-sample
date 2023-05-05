@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: app
-          image: akintola/django-sample
+          image: akintola/django-sample-app
           ports:
             - containerPort: 8000
           resources:
