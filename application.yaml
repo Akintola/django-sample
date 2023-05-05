@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: django-sample-app
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/Akintola/django-sample.git
+    targetRevision: HEAD
+    path: .kubernetes
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: djangosample
+  syncPolicy:
+    syncOptions:
+    - CreateNamespace=true
+    automated:
+      selfHeal: true
+      prune: true
