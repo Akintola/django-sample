@@ -1,0 +1,21 @@
+name: Docker Image CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Build the Docker image
+      run: |
+        export DOCKER_IMAGE_TAG=${GITHUB_SHA::8}
+        docker build . --file Dockerfile --tag akintola/django-sample-app:$DOCKER_IMAGE_TAG
+        docker image push --all-tags akintola/django-sample-app
